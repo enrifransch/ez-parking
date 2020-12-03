@@ -43,6 +43,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       height: 50
     }
   };
+  public origin: any;
+  public destination: any;
 
   isNavigate = false;
 
@@ -220,12 +222,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.nanostores = [this.ezparking];
         this.isNavigate = true;
       }, 2000);
-    } else {
+    }
+    else {
       this.onDirections();
     }
   }
 
   onDirections() {
+    this.origin = {lat: 19.416461, lng: -99.1480651};
+    this.destination = {lat: this.ezparking.latitude, lng: this.ezparking.longitude};
+    this.zoom = 14;
+  }
+
+  onMap() {
     window.open('https://www.google.com/maps/dir/2%E1%B5%83+Calle+de+Ernesto+Pugibet+30,+Colonia+Centro,+Centro,+Cuauht%C3%A9moc,+06000+Ciudad+de+M%C3%A9xico,+CDMX/19.4216553,-99.1471722/@19.4263941,-99.147837,16.49z/data=!4m9!4m8!1m5!1m1!1s0x85d1fed59e82d127:0xab72aa4ae12e3aa8!2m2!1d-99.1452233!2d19.4297961!1m0!3e0', '_blank')
   }
 }
