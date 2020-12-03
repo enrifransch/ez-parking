@@ -1,0 +1,44 @@
+.stores-container {
+  padding: 2vw;
+}
+
+table {
+  width: 100%;
+}
+
+.table-container {
+  overflow: auto;
+  max-height: calc(90vh - 275px);
+}
+
+.container {
+  &__title {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+}
+
+.table-toolbar {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  button {
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+}
+
+.inputfile {
+  input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+}

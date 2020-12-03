@@ -1,0 +1,136 @@
+<div class="home-container">
+
+  <div class="search-bar mat-elevation-z10" fxLayout="center center">
+    <input #searchAddress placeholder="Buscar direccion" [(ngModel)]="searchAddressValue">
+    <div class="search-bar__buttons">
+      <button mat-icon-button (click)="searchAddressValue = ''" *ngIf="searchAddress.value">
+        <mat-icon>close</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="!searchAddress.value">
+        <mat-icon>search</mat-icon>
+      </button>
+      <button mat-icon-button (click)="getCurrentLocation()">
+        <mat-icon>my_location</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <agm-map #map
+           [ngClass]="isAdding ? 'mask' : ''"
+           (centerChange)="centerChange($event)"
+           (mapClick)="mapClick($event)"
+           [latitude]="lat"
+           [longitude]="lng"
+           [usePanning]="true"
+           (mapReady)="mapReady($event)"
+           [zoom]="zoom">
+    <agm-marker *ngFor="let nanostore of nanostores; let i = index"
+                [id]="nanostore.id"
+                (markerClick)="markerClick(nanostore)"
+                [latitude]="nanostore.location.latitude"
+                [longitude]="nanostore.location.longitude">
+      <agm-info-window [disableAutoPan]="false" #infoWindow [id]="nanostore.id">
+        <div class="marker-content" fxLayoutAlign="center start" fxLayout="column">
+          <div><strong>{{nanostore?.name}}</strong></div>
+
+        </div>
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker *ngIf="nanostore.location"
+                [iconUrl]="icon"
+                [latitude]="nanostore.location.latitude"
+                [longitude]="nanostore.location.longitude">
+    </agm-marker>
+  </agm-map>
+
+  <!-- Available stores menu for desktop -->
+  <div class="side-menu mat-elevation-z2">
+    <div class="side-menu__title">Tiendas disponibles</div>
+    <div class="nanostore-list" fxLayout="column">
+      <div class="nanostore" *ngFor="let n of nanostores" fxLayoutAlign="flex-start center">
+        <mat-icon (click)="onGoToNanostore(n)">my_location</mat-icon>
+        <div>{{n.name}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button that shows the available stores for mobile -->
+  <button class="stores-button-mobile" mat-fab (click)="displayStoresMobile()" *ngIf="isMobile && !isAdding">
+    <mat-icon>{{isDisplayStores ? 'close' : 'store'}}</mat-icon>
+  </button>
+
+  <!-- Available stores menu for mobile -->
+  <mat-card *ngIf="isDisplayStores" class="stores-menu-mobile" [@upDownAnimation]>
+    <div class="stores-menu-mobile__header">Parquímetros disponibles</div>
+    <div fxLayout="column" class="nanostore-list-mobile">
+      <div class="nanostore-mobile" *ngFor="let n of nanostores" fxLayoutAlign="flex-start center">
+        <mat-icon (click)="onGoToNanostore(n)">my_location</mat-icon>
+        <div>{{n.name}}</div>
+      </div>
+    </div>
+  </mat-card>
+
+  <button class="add-button" mat-fab (click)="onNavigate()">
+    <mat-icon>{{!isNavigate ? 'local_parking' : 'navigation'}}</mat-icon>
+  </button>
+
+  <!-- Button that shows the create store menu -->
+  <!--<button class="add-button" mat-fab (click)="onAdd()" matTooltip="Crear comercio">
+    <mat-icon>{{isAdding ? 'close' : 'add'}}</mat-icon>
+  </button>-->
+
+  <!-- Create store menu -->
+  <!--<mat-card *ngIf="isAdding && nanostore.location" class="add-menu">
+    <button class="add-menu__close-button" mat-icon-button (click)="onCancelCreateMenu()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-card-title>Agregar comercio</mat-card-title>
+    <mat-card-content fxLayout="column" fxLayoutGap.gt-lg="10px" fxLayoutGap.gt-md="10px">
+      <mat-form-field>
+        <mat-label>Dirección comercio</mat-label>
+        <textarea matInput [(ngModel)]="nanostore.address"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nombre comercio o locatario</mat-label>
+        <input matInput [(ngModel)]="nanostore.name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Numero telefonico</mat-label>
+        <input matInput [(ngModel)]="nanostore.phone">
+      </mat-form-field>
+      <mat-checkbox [(ngModel)]="nanostore.delivery">
+        Cuenta con servicio a domicilio?
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="nanostore.isWhatsApp">
+        Cuenta con WhatsApp?
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="nanostore.cardPayments">
+        Cuenta con pagos con tarjeta?
+      </mat-checkbox>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="flex-end center">
+      <button mat-raised-button color="warn" (click)="onCancelCreateMenu()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="onAddMenuCreate()">Agregar</button>
+    </mat-card-actions>
+  </mat-card>-->
+
+  <!-- CSV upload button only for desktop, will redirect to stores page -->
+<!--  <button class="upload-button" *ngIf="!isMobile"
+          mat-fab
+          (click)="onAdd()"
+          matTooltip="Cargar CSV"
+          color="primary" disabled>
+    <mat-icon>publish</mat-icon>
+  </button>-->
+
+  <!-- Click on the map instructions -->
+  <h2 class="instructions" *ngIf="isAdding">Haz click en el mapa para agregar</h2>
+
+</div>
+
+
+
+
+
+

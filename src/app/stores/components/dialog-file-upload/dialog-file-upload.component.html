@@ -1,0 +1,22 @@
+<div class="dialog">
+  <div mat-dialog-title>
+    Cargar archivo
+  </div>
+
+  <div mat-dialog-content>
+    <div #xlsx></div>
+  </div>
+
+  <div mat-dialog-actions fxLayoutAlign="end end">
+    <button mat-raised-button color="warn" mat-dialog-close>
+      Cancelar
+    </button>
+    <button mat-raised-button color="primary" (click)="onAccept()">
+      Aceptar
+    </button>
+  </div>
+
+<!--  <button mat-fab class="help-button" color="accent">-->
+<!--    <mat-icon>help</mat-icon>-->
+<!--  </button>-->
+</div>

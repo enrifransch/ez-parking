@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="mat-elevation-z2">
+  <mat-toolbar-row>
+    <mat-icon (click)="sidenav.toggle()" class="menu-bars">menu</mat-icon>
+    <span>EZ-Parking</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav
+               mode="side"
+               [(opened)]="opened"
+               (opened)="events.push('open!')"
+               (closed)="events.push('close!')">
+    <div class="drawer">
+      <div class="drawer__item"
+           *ngFor="let r of routes"
+           [routerLink]="[r.name]"
+           routerLinkActive="active">
+        <mat-icon>{{r.icon}}</mat-icon>
+        {{r.label}}
+      </div>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

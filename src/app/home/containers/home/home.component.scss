@@ -1,0 +1,253 @@
+.home-container {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: auto 200px;
+  column-gap: 1px;
+}
+
+.search-bar {
+  position: absolute;
+  top: 25px;
+  left: calc(50% - 250px);
+  z-index: 10;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  min-width: 250px;
+  width: 400px;
+
+  &__buttons {
+
+  }
+
+  input {
+    border: none;
+    height: 30px;
+    width: 300px;
+    outline: none;
+    font-size: 0.9em;
+  }
+}
+
+agm-map {
+  grid-column: 1 / 2;
+  height: 100%;
+  width: 100%;
+  display: inline-block
+}
+
+.mask {
+  background-color: black;
+  opacity: 0.9;
+}
+
+.add-button {
+  position: absolute;
+  bottom: 40px;
+  right: 110px;
+}
+
+.upload-button {
+  position: absolute;
+  bottom: 40px;
+  right: 30px;
+}
+
+.instructions {
+  color: red;
+  position: absolute;
+  top: 200px;
+  left: calc(50% - 218px);
+  background-color: whitesmoke;
+}
+
+.add-menu {
+  position: absolute;
+  top: calc(48% - 150px);
+  right: 225px;
+  width: 400px;
+
+  mat-card-title {
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+
+  &__close-button {
+    display: none;
+  }
+}
+
+.side-menu {
+  grid-column: 2;
+  max-height: calc(100vh - 64px);
+
+  &__title {
+    text-align: center;
+    font-weight: 500;
+    padding: 10px 0;
+    font-size: 1.1em;
+  }
+}
+
+.nanostore-list {
+  max-height: calc(100vh - 215px);
+  overflow-y: auto;
+}
+
+.nanostore {
+  width: 100%;
+  padding: 10px 10px;
+  position: relative;
+  border-bottom: 1px solid #e0e0e0;
+
+  mat-icon {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:first-child {
+    border-top: 1px solid #e0e0e0;
+  }
+}
+
+.active {
+  color: green;
+}
+
+.inactive {
+  color: dimgrey;
+  text-decoration: line-through;
+}
+
+.whatsapp_logo {
+  position: absolute;
+  height: 30px;
+  width: auto;
+  bottom: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+@media(max-width: 1000px) {
+  .home-container {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: auto;
+  }
+
+  .side-menu {
+    display: none;
+
+    &__title {
+      text-align: center;
+      font-weight: 500;
+      padding: 10px 0;
+      font-size: 1.1em;
+    }
+  }
+
+  .search-bar {
+    width: 90vw;
+    left: 5vw;
+
+    input {
+      border: none;
+      height: 30px;
+      width: 70%;
+      outline: none;
+      font-size: 0.9em;
+    }
+  }
+
+  .add-button {
+    bottom: calc(40% - 50px);
+    right: 5px;
+  }
+
+  .instructions {
+    width: 100vw;
+    text-align: center;
+    right: 0;
+    top: 110px;
+  }
+
+  .add-menu {
+    top: 55%;
+    right: 2vw;
+    width: 96vw;
+    margin-bottom: 20px;
+
+    mat-card-title {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.4em;
+    }
+
+    &__close-button {
+      display: block;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+  }
+
+  .stores-menu-mobile {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    max-height: 50vh;
+    height: 40vh;
+    width: 100vw;
+    overflow-y: hidden;
+    background-color: #3F52B5;
+    padding: 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    transition: height 1s linear;
+
+    &__header {
+      text-align: center;
+      color: white;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      height: 40px;
+      font-size: 1.1em;
+      font-weight: 500;
+      padding-top: 10px;
+    }
+
+    .nanostore-list-mobile {
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      background-color: white;
+      height: 100%;
+      padding-top: 5px;
+      overflow-y: auto;
+
+      .nanostore-mobile {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 10px 30px;
+
+        mat-icon {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .stores-button-mobile {
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 50px);
+  }
+}

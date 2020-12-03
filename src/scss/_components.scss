@@ -1,0 +1,80 @@
+.gm-style .gm-style-iw-c {
+  max-width: 300px !important;
+  padding: 10px !important;
+}
+
+.gm-style-iw-c {
+  button {
+    top: 0 !important;
+    right: 0 !important;
+
+    img {
+      width: 16px !important;
+      height: 16px !important;
+    }
+  }
+}
+
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 50px;
+}
+
+textarea {
+  overflow: hidden;
+}
+
+
+.mat-header-cell {
+  font-size: 17px;
+  font-weight: lighter;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding: 5px !important;
+}
+
+.mat-cell {
+  font-weight: lighter;
+  font-size: 13px;
+  max-width: 200px !important;
+  overflow: hidden !important;
+}
+
+.mat-column-select {
+  overflow: initial;
+}
+
+.xlsx-table {
+
+}
+
+.xlsx-table {
+  color: #333;
+  background: white;
+  border: 1px solid grey;
+  position: relative;
+  border-collapse: collapse;
+  margin: 0 auto;
+
+  thead {
+    color: #777;
+    background: rgba(0, 0, 0, .1);
+  }
+
+  td, th {
+    border: 1px solid lightgrey;
+    padding: 0.25rem;
+  }
+
+  th {
+    background: white;
+    top: 0;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.relative {
+  position: relative;
+}
