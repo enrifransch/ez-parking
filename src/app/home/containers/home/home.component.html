@@ -1,6 +1,6 @@
 <div class="home-container">
 
-  <div class="search-bar mat-elevation-z10" fxLayout="center center">
+  <div class="search-bar mat-elevation-z10" fxLayout="center center" *ngIf="!isNavigate">
     <input #searchAddress placeholder="Buscar direccion" [(ngModel)]="searchAddressValue">
     <div class="search-bar__buttons">
       <button mat-icon-button (click)="searchAddressValue = ''" *ngIf="searchAddress.value">
@@ -42,6 +42,11 @@
                 [latitude]="nanostore.location.latitude"
                 [longitude]="nanostore.location.longitude">
     </agm-marker>
+
+    <agm-direction
+      [origin]="origin"
+      [destination]="destination">
+    </agm-direction>
   </agm-map>
 
   <!-- Available stores menu for desktop -->
@@ -56,12 +61,13 @@
   </div>
 
   <!-- Button that shows the available stores for mobile -->
-  <button class="stores-button-mobile" mat-fab (click)="displayStoresMobile()" *ngIf="isMobile && !isAdding">
+  <button class="stores-button-mobile" mat-fab (click)="displayStoresMobile()"
+          *ngIf="isMobile && !isAdding && !isNavigate">
     <mat-icon>{{isDisplayStores ? 'close' : 'store'}}</mat-icon>
   </button>
 
   <!-- Available stores menu for mobile -->
-  <mat-card *ngIf="isDisplayStores" class="stores-menu-mobile" [@upDownAnimation]>
+  <mat-card *ngIf="isDisplayStores && !isNavigate" class="stores-menu-mobile" [@upDownAnimation]>
     <div class="stores-menu-mobile__header">Parquímetros disponibles</div>
     <div fxLayout="column" class="nanostore-list-mobile">
       <div class="nanostore-mobile" *ngFor="let n of nanostores" fxLayoutAlign="flex-start center">
@@ -73,6 +79,10 @@
 
   <button class="add-button" mat-fab (click)="onNavigate()">
     <mat-icon>{{!isNavigate ? 'local_parking' : 'navigation'}}</mat-icon>
+  </button>
+
+  <button class="map-button" mat-fab (click)="onMap()" *ngIf="isNavigate">
+    <mat-icon>directions</mat-icon>
   </button>
 
   <!-- Button that shows the create store menu -->

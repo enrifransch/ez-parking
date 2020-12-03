@@ -52,6 +52,12 @@ agm-map {
   right: 110px;
 }
 
+.map-button {
+  position: absolute;
+  right: 110px;
+  bottom: 160px;
+}
+
 .upload-button {
   position: absolute;
   bottom: 40px;
@@ -172,6 +178,12 @@ agm-map {
   .add-button {
     bottom: calc(40% - 50px);
     right: 5px;
+  }
+
+  .map-button {
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 50px);
   }
 
   .instructions {

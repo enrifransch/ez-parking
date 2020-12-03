@@ -14,10 +14,11 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireAnalyticsModule} from '@angular/fire/analytics';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { CoreComponent } from './core/core/core.component';
-import { StoresComponent } from './stores/containers/stores/stores.component';
-import { DialogFileUploadComponent } from './stores/components/dialog-file-upload/dialog-file-upload.component';
-import { DialogHelpUploadComponent } from './stores/components/dialog-help-upload/dialog-help-upload.component';
+import {CoreComponent} from './core/core/core.component';
+import {StoresComponent} from './stores/containers/stores/stores.component';
+import {DialogFileUploadComponent} from './stores/components/dialog-file-upload/dialog-file-upload.component';
+import {DialogHelpUploadComponent} from './stores/components/dialog-help-upload/dialog-help-upload.component';
+import {AgmDirectionModule} from 'agm-direction';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { DialogHelpUploadComponent } from './stores/components/dialog-help-uploa
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     HammerModule,
+    AgmDirectionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
