@@ -1,6 +1,23 @@
-# B2bAdminPanel
+# EZParking
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+# Descripción
+
+Es una plataforma que facilita la ubicación de bahías de carga/descarga para vehículos de reparto de mercancías. A través de algoritmos de optimización, se definen los espacios para parquímetros de estos vehículos. Dichos lugares se demaracan para su uso exclusivo. Finalmente, a través de una App móvil, los conductores ven la disponibilidad, reservan, seleccionan ruta más corta y pagan.
+
+# Motivación 
+
+La movilidad urbana representa un reto para las ciudades en mercados emergentes. Con mayor congestión vehicular, la distribución de mercancías a miles de micro y pequeños negocios es ineficiente, generando altos costos logísticos, mayores emisiones de gases de efecto invernadero y reducción de la calidad de vida.
+
+# Objetivos
+
+<ol>
+<li>Reducir el costo logístico de mercancías</li>
+<li>Reducir las emisiones de gases de efecto invernadero</li>
+<li>Fomentar ciudades y comunidades sostenibles</li>
+<li>Reducir la congestión vehicular en ciudades</li>
+</ol>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3NJrwzQG6Qg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Development server
 
@@ -13,15 +30,3 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
